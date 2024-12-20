@@ -33,6 +33,7 @@ Interface: IGrader
 
 interface IGrader {
     function retrieve2() external payable;
+    function retrieve() external payable;
     function mint(address to) external;
     function gradeMe(string calldata name) external;
 }
@@ -87,6 +88,11 @@ contract ProxyGrader {
     function callRetrieve2() external payable {
         require(msg.value > 3, "Send more than 3 wei");
         IGrader(graderContract).retrieve2{value: msg.value}();
+    }
+
+    // Llama a la función mint del contrato externo
+    function callMint() external {
+        IGrader(graderContract).mint(msg.sender);
     }
 
     /*

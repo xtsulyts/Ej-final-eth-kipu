@@ -25,7 +25,7 @@ const deployProxyGrader: DeployFunction = async function (hre: HardhatRuntimeEnv
   await deploy("ProxyGrader", {
     from: deployer,
     // Contract constructor arguments
-    args: [0x6F14A55C82600DCAFeb1841243a15921DCD10aF7],
+    args: ['0x6F14A55C82600DCAFeb1841243a15921DCD10aF7'],
     log: true,
     // autoMine: can be passed to the deploy function to make the deployment process faster on local networks by
     // automatically mining the contract deployment transaction. There is no effect on live networks.
@@ -34,7 +34,7 @@ const deployProxyGrader: DeployFunction = async function (hre: HardhatRuntimeEnv
 
   // Get the deployed contract to interact with it after deploying.
   const ProxyGrader = await hre.ethers.getContract<Contract>("ProxyGrader", deployer);
-  console.log("👋 Initial greeting:", await ProxyGrader.greeting());
+
 };
 
 export default deployProxyGrader;
